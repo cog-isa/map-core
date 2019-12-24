@@ -1,0 +1,3 @@
+include src/swm/content/*.pdf
+include src/planning/benchmarks/*/*.hddl
+include src/planning/benchmarks/simple/*/*.hddl

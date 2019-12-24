@@ -1,0 +1,40 @@
+(define
+	(problem pRfile01)
+	(:domain  domain_HTNroom)
+	(:objects
+		block_a - block
+		block_b - block
+		block_c - block
+		block_d - block
+		room_0 - room
+		room_1 - room
+		room_2 - room
+		ag1 - agent
+	)
+	(:htn
+		:parameters ()
+		:subtasks (and
+		 (task0 (deliver_ordering block_a room_2))
+		 (task1 (deliver_ordering block_b room_2))
+		 (task2 (deliver_ordering block_c room_0))
+		 (task3 (deliver_ordering block_d room_0))
+		)
+		:ordering (and
+			(task0 < task2)
+			(task2 < task1)
+			(task1 < task3)
+		)
+	)
+	(:init
+		(handempty ag1)
+		(hallway room_0 room_1)
+		(hallway room_1 room_0)
+		(hallway room_1 room_2)
+		(hallway room_2 room_1)
+		(at block_a room_0)
+		(at block_b room_0)
+		(at block_c room_2)
+		(at block_d room_2)
+		(at ag1 room_1)
+	)
+)
