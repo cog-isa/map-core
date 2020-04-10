@@ -6,7 +6,9 @@ from mapcore.planning.mapplanner import MapPlanner
 
 from config_master import create_config, get_config
 import platform
+from memory_profiler import profile
 
+@profile
 def main(args):
     if platform.system() != 'Windows':
         delim = '/'
@@ -28,7 +30,7 @@ def main(args):
             path = args.config_path
     else:
         if not args.config_path:
-            path = create_config(task_num = '3', delim=delim, task_type = 'hddl')
+            path = create_config(task_num = '5', delim=delim, task_type = 'pddl')
         else:
             path = args.config_path
 
